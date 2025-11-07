@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroSphere | Information</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-section">
+      <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
+      <h1 class="site-name">ZeroSphere</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="pathways.html">Neutrality Pathways</a></li>
+        <li><a href="info.html" class="active">Information</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero hero-info">
+    <h1>Information Hub</h1>
+    <p class="tagline">Awareness is the first step toward action.</p>
+    <p class="intro">
+      Understanding the scale and impact of carbon emissions from coal mining
+      is critical to shaping a sustainable future. Explore key insights,
+      national policies, and global trends that define our fight for
+      environmental balance.
+    </p>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="info-section toc">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#understanding">1. Understanding Carbon Emissions</a></li>
+      <li><a href="#data">2. Global & Indian Mining Emissions</a></li>
+      <li><a href="#importance">3. Why Emission Calculation Matters</a></li>
+      <li><a href="#neutrality">4. Carbon Neutrality & Carbon Credits</a></li>
+      <li><a href="#india">5. India’s Path Toward Sustainable Mining</a></li>
+      <li><a href="#zerosphere">6. Our Role – ZeroSphere’s Contribution</a></li>
+    </ul>
+  </section>
+
+  <!-- Sections -->
+  <section class="info-section" id="understanding">
+    <h2>1. Understanding Carbon Emissions</h2>
+    <p>
+      Greenhouse gases such as <strong>CO₂, CH₄ (methane)</strong> and
+      <strong>N₂O (nitrous oxide)</strong> are the main drivers of global
+      warming. Mining operations emit these gases through equipment usage,
+      fuel combustion, and ventilation losses.
+    </p>
+    <p>
+      Each gas has a different <strong>Global Warming Potential (GWP)</strong> —
+      methane is 28–36 times more potent than CO₂, and N₂O is nearly 300 times
+      more powerful.
+    </p>
+  </section>
+
+  <section class="info-section alt-bg" id="data">
+    <h2>2. Global & Indian Mining Emissions</h2>
+    <p>
+      Globally, coal mining contributes nearly <strong>1 gigatonne of CO₂e</strong> annually.
+      India ranks among the top five emitters, with the coal sector responsible for
+      about <strong>10% of the nation’s total greenhouse gas emissions</strong>.
+    </p>
+    <p>
+      India’s major coal-producing regions—Jharkhand, Chhattisgarh, Odisha, and Madhya Pradesh—
+      face both emission intensity and policy scrutiny. The government has initiated
+      programs under the <strong>National Action Plan on Climate Change (NAPCC)</strong> and
+      <strong>Perform, Achieve, and Trade (PAT)</strong> schemes to reduce industrial footprints.
+    </p>
+  </section>
+
+  <section class="info-section" id="importance">
+    <h2>3. Why Emission Calculation Matters</h2>
+    <p>
+      Without quantification, mitigation is impossible. Accurate emission
+      estimation enables industries to identify high-impact activities, track
+      progress toward reduction targets, and qualify for <strong>carbon credits</strong>.
+    </p>
+    <p>
+      It also supports transparency, better policy enforcement, and informed
+      decision-making for sustainable resource management.
+    </p>
+  </section>
+
+  <section class="info-section alt-bg" id="neutrality">
+    <h2>4. Carbon Neutrality & Carbon Credits</h2>
+    <p>
+      <strong>Carbon neutrality</strong> means achieving a balance between
+      emissions produced and emissions removed. This is often achieved through
+      a combination of emission reduction and compensatory measures such as
+      afforestation, renewable energy transition, or methane capture.
+    </p>
+    <p>
+      Each tonne of CO₂ avoided or absorbed can earn a <strong>carbon credit</strong>,
+      tradable in global markets — offering both environmental and financial
+      incentives for industries.
+    </p>
+  </section>
+
+  <section class="info-section" id="india">
+    <h2>5. India’s Path Toward Sustainable Mining</h2>
+    <p>
+      India aims to reduce its <strong>emission intensity by 45% by 2030</strong>
+      under the Paris Agreement commitments. Sustainable coal mining now includes
+      methane recovery, dust suppression, energy efficiency, and post-mining
+      land reclamation programs.
+    </p>
+    <p>
+      Public sector undertakings like Coal India Limited are testing
+      <strong>underground coal gasification</strong> and <strong>solar-powered
+      operations</strong> as part of their sustainability initiatives.
+    </p>
+  </section>
+
+  <section class="info-section alt-bg" id="zerosphere">
+    <h2>6. Our Role – ZeroSphere’s Contribution</h2>
+    <p>
+      <strong>ZeroSphere</strong> serves as a transparent, data-driven platform
+      for quantifying mine emissions, identifying carbon sinks, and exploring
+      neutralization pathways. It bridges scientific computation with
+      environmental responsibility.
+    </p>
+    <p>
+      Our goal is to enable industries to transition from estimation to
+      <strong>empowerment</strong> — making carbon neutrality measurable,
+      achievable, and meaningful.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ZeroSphere. All rights reserved. | Designed by Surat Bhushan</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for TOC
+    document.querySelectorAll('.toc a').forEach(link => {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>

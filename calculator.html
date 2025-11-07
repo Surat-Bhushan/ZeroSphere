@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroSphere | Carbon Calculator</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-section">
+      <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
+      <h1 class="site-name">ZeroSphere</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html" class="active">Calculator</a></li>
+        <li><a href="pathways.html">Neutrality Pathways</a></li>
+        <li><a href="info.html">Information</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================================ Hero Section (Calculator Page) ================================== --> 
+  <section class="calculator-hero">
+    <div class="hero-content">
+      <h1>Carbon Emission Calculator</h1>
+      <p class="tagline">Accuracy. Transparency. Automation. Standardisation.</p>
+      <p class="intro">
+        Accurate carbon accounting is the cornerstone of responsible mining. Yet, most existing systems suffer from fragmented data, inconsistent standards, and manual estimations.
+        <span class="highlight">ZeroSphere</span> bridges this gap — offering
+        <strong>precision, automation, transparency</strong>, and globally aligned
+        <strong>standardisation</strong> for emission measurement and reporting.
+      </p>
+    </div>
+  </section>
+
+  <!-- Emission Inputs -->
+  <section class="calculator-section light-bg">
+    <h2>1. Scope 1 Emission Calculation</h2>
+    <p class="section-intro">Enter activity data (fuel use, CH₄, N₂O etc.) to estimate total CO₂e emissions.</p>
+
+    <form id="emissionForm" class="calc-form">
+      <div class="input-grid">
+        <div class="form-field"><label for="diesel">Diesel used (L)</label><input type="number" id="diesel" min="0" placeholder="e.g., 500" /></div>
+        <div class="form-field"><label for="petrol">Petrol used (L)</label><input type="number" id="petrol" min="0" placeholder="e.g., 300" /></div>
+        <div class="form-field"><label for="coal">Coal used (kg)</label><input type="number" id="coal" min="0" placeholder="e.g., 2000" /></div>
+        <div class="form-field"><label for="lpg">LPG used (kg)</label><input type="number" id="lpg" min="0" placeholder="e.g., 150" /></div>
+        <div class="form-field"><label for="ch4">Methane (CH₄) released (m³)</label><input type="number" id="ch4" min="0" placeholder="e.g., 20" /></div>
+        <div class="form-field"><label for="n2o">Nitrous Oxide (N₂O) emitted (kg)</label><input type="number" id="n2o" min="0" placeholder="e.g., 10" /></div>
+      </div>
+      <button type="button" id="calcEmissionBtn" class="btn calc-btn">Calculate Emissions</button>
+      <div class="result-display"><p>Total Scope 1 Emissions: <span id="totalEmission">--</span> t CO₂e</p></div>
+    </form>
+  </section>
+
+  <!-- Sink -->
+  <section class="calculator-section alt-bg">
+    <h2>2. Sink Calculation</h2>
+    <p class="section-intro">Estimate carbon sequestration through natural/artificial sinks.</p>
+
+    <form id="sinkForm" class="calc-form">
+      <div class="input-grid">
+        <div class="form-field"><label for="forest">Afforested area (ha)</label><input type="number" id="forest" min="0" placeholder="e.g., 1" /></div>
+        <div class="form-field"><label for="grassland">Grassland restored (ha)</label><input type="number" id="grassland" min="0" placeholder="e.g., 1" /></div>
+      </div>
+      <button type="button" id="calcSinkBtn" class="btn calc-btn">Calculate Sink</button>
+      <div class="result-display">
+        <p>Total Sink: <span id="sinkValue">--</span> t CO₂e</p>
+        <p>Net Emission: <span id="netEmission">--</span> t CO₂e</p>
+      </div>
+    </form>
+  </section>
+
+  <!-- Charts -->
+  <section class="calculator-section light-bg">
+    <h2>3. Visualization & Report</h2>
+    <div class="charts-container">
+      <div class="chart-box">
+        <h3>Emission Breakdown (Pie Chart)</h3>
+        <canvas id="emissionPie"></canvas>
+      </div>
+      <div class="chart-box">
+        <h3>Total vs Sink vs Net (Bar Chart)</h3>
+        <canvas id="emissionBar"></canvas>
+      </div>
+    </div>
+
+    <div class="chart-actions">
+      <button class="btn action-btn" id="saveCalc">Save Calculation</button>
+      <button class="btn action-btn" id="clearPage">Clear Page</button>
+    </div>
+
+    <!-- Historical Chart -->
+    <div class="chart-box">
+      <h3>Historical Comparison (Line Chart)</h3>
+      <div class="history-controls">
+        <label><input type="checkbox" id="showEmission" checked> Emission</label>
+        <label><input type="checkbox" id="showSink" checked> Sink</label>
+        <label><input type="checkbox" id="showNet" checked> Net</label>
+        <label for="historyCount">Show last:</label>
+        <select id="historyCount">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+        </select>
+      </div>
+      <canvas id="historyLine"></canvas>
+      <div id="datasetCheckboxes" class="dataset-checkboxes"></div>
+    </div>
+
+    <div class="download-section">
+      <button class="btn download-btn" id="downloadCSV">Download CSV Report</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 ZeroSphere. All rights reserved. | Designed by Surat Bhushan</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>

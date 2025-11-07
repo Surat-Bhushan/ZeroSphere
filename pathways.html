@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZeroSphere | Carbon Neutrality Pathways</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo-section">
+      <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
+      <h1 class="site-name">ZeroSphere</h1>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="pathways.html" class="active">Neutrality Pathways</a></li>
+        <li><a href="info.html">Information</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ================================
+       Hero Section
+  ================================== -->
+  <section class="hero hero-pathways">
+    <div class="hero-content">
+      <h1>Carbon Neutrality Pathways</h1>
+      <p class="tagline">Reducing Emissions. Restoring Balance.</p>
+      <p class="intro">
+        Coal mining alone contributes nearly <strong>10% of India’s total greenhouse gas emissions</strong> — a mix of
+        carbon dioxide, methane, and nitrous oxide that accelerates global warming and endangers nearby ecosystems.
+        Reducing these emissions is not just an environmental choice, but an industrial necessity to ensure
+        <span class="highlight">sustainability and compliance</span> with global climate goals.
+      </p>
+    </div>
+  </section>
+
+  <!-- Input Section -->
+  <section class="pathways-section light-bg">
+    <h2>Resource Inputs</h2>
+    <p class="section-intro">Enter your available resources and current emission values.</p>
+
+    <form id="pathwayForm" class="calc-form">
+      <div class="input-grid">
+        <div class="form-field">
+          <label for="fund">Available Fund (₹)</label>
+          <input type="number" id="fund" placeholder="e.g. 100000" min="0" />
+        </div>
+        <div class="form-field">
+          <label for="land">Available Land (ha)</label>
+          <input type="number" id="land" placeholder="e.g. 20" min="0" />
+        </div>
+        <div class="form-field">
+          <label for="currentEmission">Current Net Emission (t CO₂e)</label>
+          <input type="number" id="currentEmission" placeholder="e.g. 5000" min="0" />
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!-- Methods Section -->
+  <section class="methods-container">
+    <!-- Afforestation -->
+    <div class="method-block" style="background-image: url('./images/afforestation.jpg');">
+      <div class="overlay">
+        <h2>Afforestation & Reforestation</h2>
+        <p>Utilize available land and funds for plantation and forest restoration projects to enhance natural sinks.</p>
+        <button class="btn method-btn" id="calcAffor">Calculate Reduction via Afforestation</button>
+
+        <div class="method-results">
+          <p>Prior Net Emission(t CO₂e): <span id="afforPrior">--</span></p>
+          <p>New Net Emission(t CO₂e): <span id="afforNew">--</span></p>
+          <p>Additional Sink(t CO₂e): <span id="afforSink">--</span></p>
+          <p>Carbon Credits Earned(₹): <span id="afforCredits">--</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Methane Capture -->
+    <div class="method-block" style="background-image: url('./images/methane-capture.jpg');">
+      <div class="overlay">
+        <h2>Methane Capture & Utilization</h2>
+        <p>Use available funds to install methane recovery systems that convert methane into usable fuel and avoid emissions.</p>
+        <button class="btn method-btn" id="calcMethane">Calculate Reduction via Methane Capture</button>
+
+        <div class="method-results">
+          <p>Prior Net Emission(t CO₂e): <span id="methanePrior">--</span></p>
+          <p>New Net Emission(t CO₂e): <span id="methaneNew">--</span></p>
+          <p>Emission Reduced(t CO₂e): <span id="methaneSink">--</span></p>
+          <p>Carbon Credits Earned(₹): <span id="methaneCredits">--</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Renewable Energy -->
+    <div class="method-block" style="background-image: url('./images/renewable-energy.jpg');">
+      <div class="overlay">
+        <h2>Renewable Energy Integration</h2>
+        <p>Replace non-renewable systems with <bold>solar energy </bold>to reduce fossil fuel dependence.</p>
+        <button class="btn method-btn" id="calcRenew">Calculate Reduction via Renewable Energy</button>
+
+        <div class="method-results">
+          <p>Prior Net Emission(t CO₂e): <span id="renewPrior">--</span></p>
+          <p>New Net Emission(t CO₂e): <span id="renewNew">--</span></p>
+          <p>Emission Reduced(t CO₂e): <span id="renewSink">--</span></p>
+          <p>Carbon Credits Earned(₹): <span id="renewCredits">--</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart Visualization -->
+  <section class="pathways-section light-bg">
+    <h2>Comparative Impact Visualization</h2>
+    <p class="section-intro">Compare potential emission reductions across all three pathways.</p>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="showAffor" checked /> Afforestation</label>
+      <label><input type="checkbox" id="showMethane" checked /> Methane Capture</label>
+      <label><input type="checkbox" id="showRenew" checked /> Renewable Energy</label>
+    </div>
+
+    <div class="chart-box">
+      <canvas id="pathwayChart"></canvas>
+    </div>
+
+    <div class="download-section">
+      <button class="btn download-btn" id="downloadCSV">Download CSV Report</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 ZeroSphere. All rights reserved. | Designed by Surat Bhushan</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/pathways.js"></script>
+</body>
+</html>
