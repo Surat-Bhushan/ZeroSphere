@@ -203,7 +203,7 @@ footer {
 }
 
 .calculator-hero h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   margin-bottom: 20px;
 }
 
@@ -354,7 +354,7 @@ footer {
 }
 
 .hero-calculator h1 {
-  font-size: 4.5rem;
+  font-size: 5rem;
   margin-bottom: 10px;
 }
 
@@ -368,7 +368,7 @@ footer {
 .hero-calculator .intro {
   max-width: 900px;
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #f9f9f9;
 }
@@ -390,7 +390,7 @@ footer {
 }
 
 .hero-pathways h1 {
-  font-size: 4.5rem;
+  font-size: 5rem;
   margin-bottom: 10px;
 }
 
@@ -403,7 +403,7 @@ footer {
 .hero-pathways .intro {
   max-width: 900px;
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #f9f9f9;
 }
@@ -651,7 +651,7 @@ footer {
   font-size: 1.5rem;
   max-width: 950px;
   margin: 0 auto;
-  color: #222;
+  color:white;
   line-height: 1.9;
 }
 
@@ -744,12 +744,12 @@ footer {
 }
 
 .hero-info h1 {
-  font-size: 4.2rem;
+  font-size: 5rem;
   margin-bottom: 15px;
 }
 
 .hero-info .tagline {
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: var(--accent);
   margin-bottom: 15px;
   font-weight: 500;
@@ -758,7 +758,7 @@ footer {
 .hero-info .intro {
   max-width: 900px;
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #f0f0f0;
 }
@@ -776,12 +776,12 @@ footer {
 }
 
 .hero-about h1 {
-  font-size: 4.2rem;
+  font-size: 5rem;
   margin-bottom: 15px;
 }
 
 .hero-about .tagline {
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: var(--accent);
   margin-bottom: 15px;
   font-weight: 500;
@@ -790,7 +790,7 @@ footer {
 .hero-about .intro {
   max-width: 900px;
   margin: 0 auto;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: #f0f0f0;
 }
@@ -878,4 +878,564 @@ footer {
   gap: 6px;
   color: var(--dark-blue);
   font-size: 1.1rem;
+}
+/* ================================
+   Responsive Styles
+   ================================ */
+
+/* ===== iPad & Tablets (768px - 1024px) ===== */
+@media (max-width: 1024px) {
+  .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  align-items: center;
+  font-size: 1rem;
+  padding: 8px 15px;
+}
+.logo {
+  height: 55px;
+}
+
+  .hero, .calculator-hero, .hero-calculator, .hero-pathways, .hero-info, .hero-about {
+    padding: 80px 15px;
+  }
+  .hero h1,
+  .hero-calculator h1,
+  .hero-pathways h1,
+  .hero-info h1,
+  .hero-about h1 {
+    font-size: 3.5rem;
+  }
+  .tagline {
+    font-size: 1.6rem;
+  }
+  .intro, .calculator-hero .hero-subtext, .hero-calculator .intro, .hero-pathways .intro, .hero-info .intro, .hero-about .intro {
+    font-size: 1.2rem;
+  }
+  .features {
+    gap: 20px;
+  }
+  .feature h2 {
+    font-size: 2.5rem;
+  }
+  .feature p {
+    font-size: 1.3rem;
+  }
+  .team-card {
+    width: 45%;
+  }
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .charts-container, .methods-container {
+    gap: 40px;
+  }
+}
+
+/* ===== Mobile (max-width: 767px) ===== */
+@media (max-width: 767px) {
+  .navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;   
+  align-items: center;
+  font-size: 1rem;
+  padding: 8px 15px;
+}
+.logo {
+  height: 55px;
+}
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .hero, .calculator-hero, .hero-calculator, .hero-pathways, .hero-info, .hero-about {
+    padding: 60px 10px;
+  }
+  .hero h1,
+  .hero-calculator h1,
+  .hero-pathways h1,
+  .hero-info h1,
+  .hero-about h1 {
+    font-size: 2.5rem;
+  }
+  .tagline {
+    font-size: 1.4rem;
+  }
+  .intro, .calculator-hero .hero-subtext, .hero-calculator .intro, .hero-pathways .intro, .hero-info .intro, .hero-about .intro {
+    font-size: 1rem;
+  }
+  .feature h2 {
+    font-size: 2rem;
+  }
+  .feature p {
+    font-size: 1.1rem;
+  }
+  .team-card {
+    width: 90%;
+  }
+  .charts-container, .methods-container {
+    gap: 30px;
+  }
+  .chart-box {
+    padding: 20px 15px;
+  }
+  .method-block .overlay {
+    padding: 40px 15px;
+  }
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .btn, .calc-btn, .download-btn, .method-btn {
+    font-size: 1.2rem;
+    padding: 8px 20px;
+  }
+}
+/* ===========================================
+   Slide-in Navbar for Mobile & Tablet
+   =========================================== */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1201;
+  
+  margin-left: auto;    
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1201;
+  line-height: 1;        
+}
+
+
+
+/* Mobile & Tablet Menu */
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -260px; /* Hidden by default */
+    height: 100%;
+    width: 250px;
+    background-color: var(--dark-blue);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 20px;
+    gap: 25px;
+    transition: left 0.3s ease;
+    z-index: 1200;
+  }
+
+  .nav-links.active {
+    left: 0; /* Slide in */
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Dim background when menu is open */
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    pointer-events: none;
+
+  }
+}
+/* ================================
+   ZeroSphere - style.css (Standardized Typography)
+   ================================ */
+
+/* Global Colors */
+:root {
+  --dark-blue: #0c2b4e;
+  --mid-blue: #1a3d64;
+  --light-blue: #1d546c;
+  --off-white: #f4f4f4;
+  --accent: #00bfa6; /* Bright green-blue accent */
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--off-white);
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ================================
+   Navbar
+   ================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 10px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.25rem);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 75px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.site-name {
+  font-size: clamp(1.2rem, 1vw + 0.8rem, 1.5rem);
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: clamp(1rem, 0.8vw + 0.6rem, 1.3rem);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* ================================
+   Hero Section (All Pages Standardized)
+   ================================ */
+.hero,
+.calculator-hero,
+.hero-calculator,
+.hero-pathways,
+.hero-info,
+.hero-about {
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero h1,
+.calculator-hero h1,
+.hero-calculator h1,
+.hero-pathways h1,
+.hero-info h1,
+.hero-about h1 {
+  font-size: clamp(2.5rem, 4vw + 1rem, 5rem);
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.tagline,
+.calculator-hero .tagline,
+.hero-calculator .tagline,
+.hero-pathways .tagline,
+.hero-info .tagline,
+.hero-about .tagline {
+  font-size: clamp(1.2rem, 2vw + 0.6rem, 2rem);
+  margin-bottom: 20px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.intro,
+.calculator-hero .hero-subtext,
+.hero-calculator .intro,
+.hero-pathways .intro,
+.hero-info .intro,
+.hero-about .intro {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.5rem);
+  line-height: 1.7;
+  color: #f0f0f0;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ================================
+   Features Section
+   ================================ */
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 30px;
+  padding: 0;
+}
+
+.feature {
+  border-radius: 0;
+  padding: 60px 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.feature:nth-child(1),
+.feature:nth-child(3) {
+  background-color: #ddeaf6;
+}
+
+.feature:nth-child(2) {
+  background-color: var(--off-white);
+}
+
+.feature h2 {
+  color: var(--mid-blue);
+  margin-bottom: 15px;
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+}
+
+.feature p {
+  max-width: 700px;
+  margin: 0 auto 15px;
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+}
+
+/* Buttons */
+.btn,
+.calc-btn,
+.method-btn,
+.download-btn {
+  display: inline-block;
+  background-color: var(--light-blue);
+  color: white;
+  padding: 10px 25px;
+  border-radius: 25px;
+  margin-top: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: clamp(1rem, 0.8vw + 0.6rem, 1.4rem);
+}
+
+.btn:hover,
+.calc-btn:hover,
+.method-btn:hover,
+.download-btn:hover {
+  background-color: var(--accent);
+}
+
+/* ================================
+   Footer
+   ================================ */
+footer {
+  background-color: var(--dark-blue);
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-size: clamp(0.9rem, 0.5vw + 0.5rem, 1rem);
+}
+
+/* ================================
+   Section Headings (Uniform)
+   ================================ */
+.calculator-section h2,
+.pathways-section h2,
+.info-section h2,
+.about-section h2,
+.team-section h2
+{
+  font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
+  color: var(--mid-blue);
+  margin-bottom: 15px;
+}
+
+/* ================================
+   Section Paragraphs (Uniform)
+   ================================ */
+.section-intro,
+.info-section p,
+.about-section p,
+
+.pathways-section .section-intro {
+  font-size: clamp(1rem, 1vw + 0.5rem, 1.4rem);
+  line-height: 1.8;
+  color: #333;
+}
+
+/* ================================
+   Charts, Cards & Miscellaneous
+   ================================ */
+.chart-box h3,
+.team-card h3 {
+  font-size: clamp(1.2rem, 1vw + 0.6rem, 1.8rem);
+}
+
+.team-card p,
+.checkbox-group,
+.method-results p,
+.result-display {
+  font-size: clamp(1rem, 0.8vw + 0.5rem, 1.3rem);
+}
+
+/* ================================
+   Responsive Navbar
+   ================================ */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1201;
+  margin-left: auto;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    height: 100%;
+    width: 250px;
+    background-color: var(--dark-blue);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 80px 20px;
+    gap: 25px;
+    transition: left 0.3s ease;
+    z-index: 1200;
+  }
+
+  .nav-links.active {
+    left: 0;
+  }
+
+  .nav-links a {
+    font-size: clamp(1rem, 0.8vw + 0.5rem, 1.3rem);
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  body.menu-open::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+    pointer-events: none;
+  }
+}
+/* =========================================
+   Final Responsive Spacing Tweaks
+   ========================================= */
+
+/* Slightly tighter padding for smaller screens */
+@media (max-width: 1024px) {
+  section,
+  .features,
+  .calculator-section,
+  .pathways-section,
+  .info-section,
+  .about-section,
+  .team-section,
+  .contact-section {
+    padding: 50px 25px;
+  }
+
+  .hero,
+  .hero-calculator,
+  .hero-pathways,
+  .hero-info,
+  .hero-about {
+    padding: 80px 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  section,
+  .features,
+  .calculator-section,
+  .pathways-section,
+  .info-section,
+  .about-section,
+  .team-section,
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .hero,
+  .hero-calculator,
+  .hero-pathways,
+  .hero-info,
+  .hero-about {
+    padding: 60px 15px;
+  }
+
+  footer {
+    padding: 12px;
+  }
+}
+
+/* Prevent mouse scroll and arrow spinners changing number inputs */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  touch-action: manipulation; /* disables scroll changing values on touch devices */
 }
