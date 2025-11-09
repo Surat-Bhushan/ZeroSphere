@@ -9,21 +9,27 @@
 
 <body>
   <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo-section">
-      <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
-      <h1 class="site-name">ZeroSphere</h1>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
-        <li><a href="pathways.html">Neutrality Pathways</a></li>
-        <li><a href="info.html">Information</a></li>
-        <li><a href="#">About Us</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Navbar -->
+<header class="navbar">
+  <div class="logo-section">
+    <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
+    <h1 class="site-name">ZeroSphere</h1>
+  </div>
+
+  <!-- Hamburger icon (appears only on mobile/tablet) -->
+  <div class="hamburger" id="hamburger">&#9776;</div>
+
+  <nav>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="pathways.html">Neutrality Pathways</a></li>
+      <li><a href="info.html">Information</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+</header>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -65,5 +71,37 @@
   <footer>
     <p>© 2025 ZeroSphere. All rights reserved. | Designed by Surat Bhushan</p>
   </footer>
+
+  <script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+
+  // Optional: close menu when clicking a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    });
+  });
+  
+  document.addEventListener('click', (e) => {
+    const nav = document.getElementById('nav-links');
+    const burger = document.getElementById('hamburger');
+    const clickedInsideMenu = nav.contains(e.target) || burger.contains(e.target);
+
+    if (!clickedInsideMenu && nav.classList.contains('active')) {
+      nav.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+  });
+
+
+</script>
+
 </body>
 </html>
