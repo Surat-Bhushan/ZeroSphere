@@ -156,4 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   updateCharts();
+  // Prevent scroll and arrow key changes on numeric fields
+document.querySelectorAll('input[type="number"]').forEach(input => {
+  input.addEventListener('wheel', e => e.preventDefault());
+  input.addEventListener('keydown', e => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') e.preventDefault();
+  });
+});
+
 });
