@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile | ZeroSphere</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo-section">
+      <img src="./images/logo.png" alt="ZeroSphere Logo" class="logo" />
+      <h1 class="site-name">ZeroSphere</h1>
+    </div>
+
+    <div class="hamburger" id="hamburger">&#9776;</div>
+
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+        <li><a href="pathways.html">Neutrality Pathways</a></li>
+        <li><a href="info.html">Information</a></li>
+        <li><a href="about.html">About Us</a></li>
+       <li class="active" id="auth-section"></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="light-bg profile-section">
+    <div class="profile-card">
+      <h2>My Profile</h2>
+      <div class="profile-grid">
+        <p><strong>Mine Name:</strong> <span id="profile-name">--</span></p>
+        <p><strong>Mine Type:</strong> <span id="profile-type">--</span></p>
+        <p><strong>State:</strong> <span id="profile-state">--</span></p>
+        <p><strong>Email:</strong> <span id="profile-email">--</span></p>
+      </div>
+      <button id="logout-btn" class="btn action-btn">Logout</button>
+    </div>
+  </section>
+
+  <section class="dark-bg results-section">
+    <h2>Saved Calculations</h2>
+    <div id="emissionResults" class="results-table">Loading...</div>
+
+    <h2>Saved Pathway Results</h2>
+    <div id="pathwayResults" class="results-table">Loading...</div>
+
+    <div class="download-section">
+      <button id="downloadProfileCSV" class="btn download-btn">Download CSV</button>
+      
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 ZeroSphere. All rights reserved. | Designed by Surat Bhushan</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="js/firebase-init.js"></script>
+  <script type="module" src="js/profile.js"></script>
+  <script type="module">
+  import { auth } from "./js/firebase-init.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const authSection = document.getElementById("auth-section");
+
+    // ✅ Safety check
+    if (!hamburger || !navLinks || !authSection) {
+      console.error("Navbar elements not found in DOM!");
+      return;
+    }
+
+    // Toggle menu
+    hamburger.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      document.body.classList.toggle("menu-open");
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        navLinks.classList.remove("active");
+        document.body.classList.remove("menu-open");
+      }
+    });
+
+    // Auth-based navbar updates
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        authSection.innerHTML = `
+          <a href="profile.html">My Profile</a>
+          
+        `;
+        document.getElementById("logoutBtn").addEventListener("click", async () => {
+          await signOut(auth);
+          alert("Logged out!");
+          window.location.href = "index.html";
+        });
+      } else {
+        authSection.innerHTML = `<a href="login.html">Login / Sign Up</a>`;
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZeroSphere Login | Carbon Emission Portal</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ========== LOGIN PAGE STYLES ========== */
+    body {
+      font-family: "Poppins", sans-serif;
+      background: var(--dark-blue);
+      color: var(--off-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .auth-container {
+      background: var(--mid-blue);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+      width: 400px;
+      text-align: center;
+    }
+
+    .auth-container h2 {
+      color: var(--accent);
+      margin-bottom: 25px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0 15px 0;
+      border: none;
+      border-radius: 8px;
+      background: var(--light-blue);
+      color: white;
+      font-size: 15px;
+    }
+
+    input::placeholder {
+      color: #cfd8dc;
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      color: var(--dark-blue);
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #02a58d;
+    }
+
+    .switch {
+      margin-top: 15px;
+      color: #cfd8dc;
+      font-size: 14px;
+    }
+
+    .switch span {
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    #logout-btn {
+      margin-top: 20px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="auth-container">
+
+    <!-- SIGN UP FORM -->
+    <div id="signup-box">
+      <h2>Register Mine Account</h2>
+      <input type="text" id="mine-name" placeholder="Mine Name" required>
+      <select id="mine-type">
+        <option value="" disabled selected>Select Mine Type</option>
+        <option value="Open-cast">Open-cast</option>
+        <option value="Underground">Underground</option>
+      </select>
+      <select id="mine-state">
+        <option value="" disabled selected>Select State</option>
+        <option>Jharkhand</option>
+        <option>Chhattisgarh</option>
+        <option>Madhya Pradesh</option>
+        <option>Odisha</option>
+        <option>Maharashtra</option>
+        <option>Telangana</option>
+        <option>West Bengal</option>
+        <option>Other</option>
+      </select>
+      <input type="email" id="signup-email" placeholder="Email">
+      <input type="password" id="signup-password" placeholder="Password">
+      <button id="signup-btn">Create Account</button>
+      <p class="switch">Already registered? <span id="show-login">Login here</span></p>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login-box" class="hidden">
+      <h2>Mine Login</h2>
+      <input type="email" id="login-email" placeholder="Email">
+      <input type="password" id="login-password" placeholder="Password">
+      <button id="login-btn">Login</button>
+      <p class="switch">New mine? <span id="show-signup">Register here</span></p>
+    </div>
+
+    <button id="logout-btn" class="hidden">Logout</button>
+
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script type="module" src="js/firebase-init.js"></script>
+  <script type="module" src="js/auth.js"></script>
+
+  <!-- Toggle login/signup forms -->
+  <script>
+    const loginBox = document.getElementById("login-box");
+    const signupBox = document.getElementById("signup-box");
+    const showLogin = document.getElementById("show-login");
+    const showSignup = document.getElementById("show-signup");
+
+    showLogin.addEventListener("click", () => {
+      signupBox.classList.add("hidden");
+      loginBox.classList.remove("hidden");
+    });
+    showSignup.addEventListener("click", () => {
+      loginBox.classList.add("hidden");
+      signupBox.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
