@@ -879,6 +879,157 @@ footer {
   color: var(--dark-blue);
   font-size: 1.1rem;
 }
+
+/* ---------- Profile & Results ---------- */
+.profile-section, .results-section {
+  padding: 60px 80px;
+  text-align: center;
+}
+
+.profile-card {
+  background: var(--mid-blue);
+  color: var(--off-white);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.profile-grid p {
+  font-size: 1rem;
+  margin: 8px 0;
+}
+
+.results-table {
+  background: var(--light-blue);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 900px;
+  color: var(--off-white);
+  overflow-x: auto;
+}
+
+.results-table table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--off-white);
+}
+
+.results-table th, .results-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.results-table th {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.results-table tr:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.download-section {
+  margin-top: 30px;
+  text-align: center;
+}
+/* Navbar (consistent across all pages) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 15px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.site-name {
+  font-size: 1.5em;
+  color: var(--off-white);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--off-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* Logout button */
+.logout-btn {
+  background: var(--accent);
+  color: var(--dark-blue);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background: #02a58d;
+}
+
+/* Mobile menu */
+.hamburger {
+  display: none;
+  font-size: 1.8em;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background-color: var(--mid-blue);
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    transition: left 0.3s;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+}
+
+
 /* ================================
    Responsive Styles
    ================================ */
