@@ -1,3 +1,20 @@
+import { auth } from "./firebase-init.js";
+import { saveCalculationToFirestore } from "./saveData.js"; // reuse saveData.js
+
+
+
+let currentUser = null;
+
+// Track auth state
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) {
+    console.log("User signed in:", user.email);
+  } else {
+    console.log("No user signed in.");
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   // ---------- CONSTANTS ----------
   const COST = {
@@ -235,5 +252,58 @@ document.querySelectorAll('input[type="number"]').forEach(input => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') e.preventDefault();
   });
 });
+document.getElementById("savePathway").addEventListener("click", async () => {
+  const entry = {
+    afforestation: results.afforestation || null,
+    methane: results.methane || null,
+    renewable: results.renewable || null,
+    timestamp: new Date().toLocaleString(),
+  };
+
+  // Always save locally
+  let pathwayHistory = JSON.parse(localStorage.getItem("pathwayHistory") || "[]");
+  pathwayHistory.push(entry);
+  localStorage.setItem("pathwayHistory", JSON.stringify(pathwayHistory));
+
+  // --- SAVE TO FIRESTORE ---
+  if (currentUser) {
+    try {
+      // Add this line here
+      await saveCalculationToFirestore(entry, "pathways");
+      alert("Pathway results saved to your profile!");
+    } catch (err) {
+      console.error(err);
+      alert("Saved locally. Error syncing with profile.");
+    }
+  } else {
+    alert("Saved locally. Sign in to sync with your profile.");
+  }
+});
+
+document.getElementById("clearPathway").addEventListener("click", () => {
+  if (!confirm("Clear all inputs and results on this page?")) return;
+
+  // Clear input fields
+  document.getElementById("fund").value = "";
+  document.getElementById("land").value = "";
+  document.getElementById("currentEmission").value = "";
+
+  // Clear results displayed
+  ["afforPrior","afforNew","afforSink","afforCredits",
+   "methanePrior","methaneNew","methaneSink","methaneCredits",
+   "renewPrior","renewNew","renewSink","renewCredits"].forEach(id => {
+    document.getElementById(id).textContent = "--";
+  });
+
+  // Clear chart
+  if (chart) chart.destroy();
+
+  // Clear local results object
+  results.afforestation = null;
+  results.methane = null;
+  results.renewable = null;
+});
+
+
 
 });
