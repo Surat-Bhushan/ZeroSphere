@@ -23,7 +23,9 @@
       <li><a href="calculator.html">Calculator</a></li>
       <li><a href="pathways.html">Neutrality Pathways</a></li>
       <li><a href="info.html"class="active">Information</a></li>
+      
       <li><a href="about.html">About Us</a></li>
+      <li id="auth-section"></li>
     </ul>
   </nav>
 </header>
@@ -158,35 +160,65 @@
       });
     });
   </script>
-  <script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
-
-  hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
-  });
-
-  // Optional: close menu when clicking a link
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    });
-  });
   
-  document.addEventListener('click', (e) => {
-    const nav = document.getElementById('nav-links');
-    const burger = document.getElementById('hamburger');
-    const clickedInsideMenu = nav.contains(e.target) || burger.contains(e.target);
 
-    if (!clickedInsideMenu && nav.classList.contains('active')) {
-      nav.classList.remove('active');
-      document.body.classList.remove('menu-open');
+
+
+<script type="module" src="js/firebase-init.js"></script>
+<script type="module">
+  import { auth } from "./js/firebase-init.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+    const authSection = document.getElementById("auth-section");
+
+    // ✅ Toggle menu (single version)
+    if (hamburger && navLinks) {
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        document.body.classList.toggle("menu-open");
+      });
+
+      // Close menu on link click
+      navLinks.querySelectorAll("a").forEach((link) =>
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+          document.body.classList.remove("menu-open");
+        })
+      );
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+          navLinks.classList.remove("active");
+          document.body.classList.remove("menu-open");
+        }
+      });
+    }
+
+    //  auth display
+    if (authSection) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          authSection.innerHTML = `
+            <a href="profile.html">My Profile</a>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+          `;
+
+          document.getElementById("logoutBtn").addEventListener("click", async () => {
+            await signOut(auth);
+            alert("Logged out!");
+            window.location.href = "index.html";
+          });
+        } else {
+          authSection.innerHTML = `<a href="login.html">Login / Sign Up</a>`;
+        }
+      });
     }
   });
-
-
 </script>
+
 </body>
 </html>
