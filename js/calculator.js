@@ -1,3 +1,13 @@
+import { auth } from "./firebase-init.js";
+import { saveCalculationToFirestore } from "./saveData.js";
+
+let currentUser = null;
+auth.onAuthStateChanged(user => {
+  currentUser = user;
+  if (user) console.log("User signed in:", user.email);
+  else console.log("No user signed in");
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const EF = { diesel: 2.68, petrol: 2.31, coal: 2.42, lpg: 3.0, ch4: 670, n2o: 298 };
   const SEQ_RATE = { forest: 6, grassland: 3 };
@@ -24,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCharts();
   });
 
+
   document.getElementById("calcSinkBtn").addEventListener("click", () => {
     totalSink = 0;
     Object.keys(SEQ_RATE).forEach(key => {
@@ -35,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     netDisplay.textContent = net.toFixed(2);
     updateCharts();
   });
+
 
   // ---------- CHARTS ----------
   const pieCtx = document.getElementById("emissionPie");
@@ -113,16 +125,40 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ---------- SAVE / CLEAR ----------
-  document.getElementById("saveCalc").addEventListener("click", () => {
+  document.getElementById("saveCalc").addEventListener("click", async () => {
     const net = totalEmission - totalSink;
     const date = new Date();
     const timestamp = `${date.getDate()} ${date.toLocaleString("default",{month:"short"})}, ${date.getHours()}:${String(date.getMinutes()).padStart(2,"0")}`;
-    const entry = { emission: totalEmission, sink: totalSink, net, timestamp, included: true, sources: emissionData };
+
+    const entry = {
+      emission: totalEmission,
+      sink: totalSink,
+      net,
+      timestamp,
+      included: true,
+      sources: emissionData,
+    };
+
+    // Always save locally
     history.push(entry);
     localStorage.setItem("calcHistory", JSON.stringify(history));
+
+    // Save to Firestore only if user is signed in
+    if (currentUser) {
+  try {
+    await saveCalculationToFirestore(entry, "emissions");
+    alert("Calculation saved to your profile!");
+  } catch (err) {
+    console.error(err);
+    alert("Saved locally. Error syncing with profile.");
+  }
+} else {
+  alert("Saved locally. Sign in to sync with your profile.");
+}
+
     updateLineChart();
-    alert("Calculation saved!");
   });
+
 
   document.getElementById("clearPage").addEventListener("click", () => {
     if (confirm("Clear current page calculations?")) {
@@ -132,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updateCharts();
     }
   });
-  
+
 
   // ---------- DOWNLOAD CSV ----------
   document.getElementById("downloadCSV").addEventListener("click", () => {
