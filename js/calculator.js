@@ -9,7 +9,7 @@ auth.onAuthStateChanged(user => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  const EF = { diesel: 2.68, petrol: 2.31, coal: 2.42, lpg: 3.0, ch4: 670, n2o: 298 };
+  const EF = { diesel: 2.68, petrol: 2.31, coal: 2.42, lpg: 3.0, ch4: 29.8, n2o: 273 };
   const SEQ_RATE = { forest: 6, grassland: 3 };
 
   let emissionData = {};
