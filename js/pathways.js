@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const FACTOR = {
     afforSinkPerHa: 6,    // t CO₂e / ha / year
-    methanePerTon: 0.67,  // t CO₂e / t CH₄
+    methanePerTon: 29.8,  // t CO₂e / t CH₄
     renewPerMWh: 0.72     // t CO₂e / MWh
   };
 
