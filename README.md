@@ -6,7 +6,7 @@ This tool estimates direct emissions from fuel combustion, fugitive gases, and o
 ## Decarbonization Pathway Simulator: 
 This tool evaluates three realistic carbon-reduction pathways- afforestation, methane capture systems, and renewable energy adoption (solar), based on a mine’s available land, funds, and current emissions.
 ## Sensing Device:
-This constitutes MQ-4,9,135 sensors controlled by ESP32 to measure CH4, CO, CO2 and air quality. It is integrated with Blynk and LCD display to enable both off-site and on-site data logging and real-time supervision and control. The code file is available in the repo.
+This constitutes MQ-4,9,135 sensors controlled by ESP32 to measure CH4, CO, CO2 and air quality. It is integrated with Blynk and LCD display to enable both off-site and on-site data logging and real-time supervision and control. The code file is available in the repo ("wifi_name" and "wifi_password" should be substituted by the user's specificatins.
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6dbedc54-4661-4a5f-9c85-2c61b5689ecd" width="350">
 </p>
