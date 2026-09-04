@@ -1,14 +1,14 @@
-#define BLYNK_TEMPLATE_ID    "TMPL3szT5y4Md"
-#define BLYNK_TEMPLATE_NAME  "EMISSION MONITOR"
-#define BLYNK_AUTH_TOKEN     "K1kBYZfxFDW5DwNcrsOJIcqqaU_X-w5h"
+#define BLYNK_TEMPLATE_ID "TMPL3nVFVEDDH"
+#define BLYNK_TEMPLATE_NAME "Emission Monitor"
+#define BLYNK_AUTH_TOKEN "3cTERa9FcTnZiJ2S__30tjAZpxIiugMT"
 
 #include <WiFi.h>
 #include <BlynkSimpleEsp32.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
-char ssid[] = "DEI_Exam";
-char pass[] = "examdei@2020";
+char ssid[] = "wifi_name";
+char pass[] = "wifi_password";
 
 const int MQ4_PIN   = 34;
 const int MQ135_PIN = 35;
